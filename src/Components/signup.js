@@ -1,45 +1,41 @@
 import React from 'react';
 import './Signup.css';
-function Signup({onNavigate}) {
-  const handleNavigate=()=>{
-    if(onNavigate){
-      onNavigate();
-    }
-  };
+import {Link} from 'react-router-dom';
+import { TextField } from '@mui/material';
+function Signup() {
   return (
     <div className="App">
       <form action="">
         <h3>SIGN UP</h3>
-        <br></br>
         <div className="input-box">
             <label>UserName : </label>
-          <input type="text" placeholder="Enter Username" required/>
+            <TextField className="boxx" variant="outlined" label="Enter Username" type="text" required/>
         </div>
         <br></br>
         <div className="input-box">
             <label>Date of Birth :</label>
-          <input type="date" placeholder="Date of Birth" required/>
+            <TextField className="boxx" variant="outlined" type="date" required/>
         </div>
         <br></br>
         <div className="input-box">
             <label>Mobile Number :</label>
-          <input type="text" placeholder="Enter Mobile Number" required/>
+            <TextField className="boxx" variant="outlined" label="Enter Mobile Number" type="number" required/>
         </div>
         <br></br>   
         <div className="input-box">
             <label>Email address :</label>
-          <input type="email" placeholder="Enter Email address" required/>
+            <TextField className="boxx" variant="outlined" label="Enter Email address" type="email" required/>
         </div>
         <br></br>
         <div className="input-box">
             <label>Password :</label>
-          <input type="password" placeholder="Enter password" required/>
+            <TextField className="boxx" variant="outlined" label="Enter Password" type="password" required/>
         </div>
         <button type="submit">SIGNUP</button>
       </form>
       <p>
         <h3>Already have an account? 
-        <span onClick={handleNavigate} ><font color="blue"> Login</font></span></h3>
+          <Link to="/Login"> Login</Link></h3>
       </p>
     </div>
   );

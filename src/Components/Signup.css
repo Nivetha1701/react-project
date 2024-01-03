@@ -9,11 +9,15 @@
     padding: 25px;
     border: 6px solid transparent #04AA6D;
     border-radius: 5px;
-    margin-left:38%;
-    margin-top:3%;
+    margin-left:40%;
+    margin-top:0%;
   }
   body{
-    background-image: url("https://i.etsystatic.com/30292489/r/il/d7fed2/3828357915/il_fullxfull.3828357915_rgsy.jpg");
+    background-image: url("https://i.pinimg.com/originals/bb/a3/2e/bba32ec007b93b67a2db45d7637f0f81.jp");
+  }
+  .boxx{
+    width:340px;
+    background-color:white;
   }
   h3{
     text-align: center;
@@ -44,4 +48,3 @@
     padding: 0;
     box-sizing:border-box;
   }
-  

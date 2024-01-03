@@ -1,20 +1,26 @@
-import './App.css';
-import React, { useState } from 'react';
-import Signup from './Components/signup.js'; 
-import Login from './Components/Login.js';
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./App.css";
+import Navbar from "./Components/Navbar";
+import Booking from "./Components/Booking";
+import Signup from "./Components/Signup";
+import Login from "./Components/Login";
+import Home from "./Components/Home";
+
 
 function App() {
-  const [currentPage, setCurrentPage] = useState('signup');
-
-  const handleNavigation = (page) => {
-    setCurrentPage(page);
-  };
-
   return (
-    <div>
-      {currentPage === 'signup' && <Signup onNavigate={() => handleNavigation('login')} />}
-      {currentPage === 'login' && <Login onNavigate={() => handleNavigation('signup')} />}
-    </div>
+    <>
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route path="/Home" element={<Home/>}/>
+          <Route path="/Login" element={<Login/>}/>
+          <Route path="/Signup" element={<Signup/>}/>
+          <Route path="/Booking" element={<Booking/>}/>
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
 

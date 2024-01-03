@@ -1,51 +1,17 @@
-import '../Components/Home.css';
-import {BrowserRouter as Router,Routes,Route,Link} from 'react-router-dom';
-function Home()
-{
-    return(
-        <div>
-            <h2>Home page</h2>
-        </div>
-    )
+import * as React from 'react';
+import Footer from './Footer';
+import Events from './Events';
+function Home() {
+  const imageUrl = 'https://www.niemindia.com/img/course_banner_1.jpg';
+
+  return (
+    <div>
+      <h1 className="Home"></h1>
+      <img src={imageUrl} alt="Description of the image" style={{ width: '1470px', height: '660px' }} />
+      <Events />
+      <Footer />
+    </div>
+  );
 }
-function Login()
-{
-    return(
-        <div>
-            <h2>Login</h2>
-        </div>
-    )
-}
-function Home()
-{
-    return(
-        <div>
-            <h2>Sign up</h2>
-        </div>
-    )
-}
-function Navbar()
-{
-    return(
-        <Router>
-            <nav>
-                <ul>
-                    <li className="active">
-                        <Link to="/" className='Link'>Home</Link>
-                    </li>
-                    <li className="">
-                        <Link to="/Login" className='Link'>Login</Link>
-                    </li>
-                    <li className="active">
-                        <Link to="/Signup" className='Link'>Signup</Link>
-                    </li>
-                </ul>
-            </nav>
-            <Routes>
-                <Route exact path='/' element={<Home/>}/>
-                <Route exact path='/Login' element={<Login/>}/>
-                <Route exact path='/Signup' element={<Signup/>}/>
-            </Routes>
-        </Router>
-    )
-}
+
+export default Home;
