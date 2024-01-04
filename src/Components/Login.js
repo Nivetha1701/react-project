@@ -1,33 +1,85 @@
-import React from 'react';
-import './Login.css';
-import {Link,BrowserRouter as Router,Routes,Route} from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import TextField from '@mui/material/TextField';
-import '@mui/material';
+import { login } from './userService';
+import './Login.css';
 
 function Login() {
+  const navigate = useNavigate();
+  const [loginData, setLoginData] = useState({
+    username: '',
+    password: '',
+  });
+
+  const [loginStatus, setLoginStatus] = useState('');
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setLoginData({
+      ...loginData,
+      [name]: value,
+    });
+  };
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+
+    if (!loginData.username || !loginData.password) {
+      setLoginStatus('Please enter both username and password.');
+      return;
+    }
+
+    const user = login(loginData.username, loginData.password);
+
+    if (user) {
+      setLoginStatus('Login successful!');
+      navigate('/Home');
+    } else {
+      setLoginStatus('Invalid username or password.');
+    }
+  };
+
   return (
     <div className="App1">
-      <form action="">
+      <form onSubmit={handleLogin}>
         <h3>LOGIN</h3>
-        <br></br>
+        <br />
         <div className="input-box">
           <label>Username : </label>
-          <br></br>
-        <TextField className="inbox" variant="outlined" label="Enter Username" type="email" required/>
+          <br />
+          <TextField
+            className="inbox"
+            variant="outlined"
+            label="Enter Username"
+            type="email"
+            name="username"
+            value={loginData.username}
+            onChange={handleInputChange}
+            required
+          />
         </div>
-        <br></br>
+        <br />
         <div className="input-box">
-            <label>Password : </label>
-            <br></br>
-       <TextField className="inbox" variant="outlined" label="Password" type="password" required/>
-       <br></br>
+          <label>Password : </label>
+          <br />
+          <TextField
+            className="inbox"
+            variant="outlined"
+            label="Password"
+            type="password"
+            name="password"
+            value={loginData.password}
+            onChange={handleInputChange}
+            required
+          />
+          <br />
         </div>
-        <br></br>
-        <Link to="/Home"><button type="submit">Login</button></Link>
-          
+        <br />
+        <button type="submit">Login</button>
+        {loginStatus && <p>{loginStatus}</p>}
       </form>
-          <p>Don't have an account ? </p>
-          <Link to="/Signup">Signup</Link>
+      <p>Don't have an account? </p>
+      <Link to="/Signup">Signup</Link>
     </div>
   );
 }
