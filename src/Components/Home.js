@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Footer from './Footer';
 import Events from './Events';
+import PaymentForm from './PaymentForm';
 function Home() 
 {
   const imageUrl = 'https://www.niemindia.com/img/course_banner_1.jpg';

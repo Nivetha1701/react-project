@@ -1,0 +1,21 @@
+{
+    "users": [
+      {
+        "UserName": "nive@gmail.com",
+        "Date of Birth": "2004-01-17",
+        "Mobile Number": "6380527809",
+        "Email address": "nive@gmail.com",
+        "Password": "12345",
+        "id": 1
+      },
+      {
+        "UserName": "user1@gmail.com",
+        "Date of Birth": "2004-01-17",
+        "Mobile Number": "6380527809",
+        "Email address": "user1@gmail.com",
+        "Password": "abcde",
+        "id": 2
+      }
+      
+    ]
+  }

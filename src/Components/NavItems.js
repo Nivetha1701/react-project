@@ -13,8 +13,8 @@ export const navItems = [
     },
     {
       id: 3,
-      title: "Signup",
-      path: "./Signup",
+      title: "About",
+      path: "./About",
       cName: "nav-item",
     },
     {

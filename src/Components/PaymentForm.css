@@ -1,0 +1,48 @@
+/* PaymentForm.css */
+
+/* Apply a general style to all labels and inputs within PaymentForm */
+.payment-form label,
+.payment-form input,
+.payment-form textarea {
+  display: block;
+  margin-bottom: 10px;
+}
+.payment-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
+    height: 90vh; 
+    margin-left: -10%;
+    background: url('https://litchfieldmagazine.com/wp-content/uploads/2021/09/entertain1cc-500x600.jpg') center center fixed; /* Replace 'your-image-url.jpg' with the actual path to your image */
+  background-size: cover; /* Ensures the image covers the entire container */
+  color: #120516;
+}
+.payment-form div {
+  max-width: 200px; 
+  margin: auto; 
+}
+
+.payment-form input,
+.payment-form textarea {
+  width: 200%;
+  padding: 10px;
+  box-sizing: border-box;
+  
+}
+
+.payment-form button {
+  padding: 10px;
+  background-color: #4caf50; 
+  color: white;
+  cursor: pointer;
+  width:300px;
+  margin-left:10% ;
+}
+
+.payment-form button:hover {
+  background-color: #45a049; 
+}
+.payment-form div[style="color: red;"] {
+  margin-top: 10px;
+}

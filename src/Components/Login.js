@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import TextField from '@mui/material/TextField';
-import { login } from './userService';
+import axios from 'axios';
 import './Login.css';
 
 function Login() {
@@ -21,21 +21,22 @@ function Login() {
     });
   };
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
 
-    if (!loginData.username || !loginData.password) {
-      setLoginStatus('Please enter both username and password.');
-      return;
-    }
+    try {
+      const response = await axios.post('http://localhost:5000/api/login', loginData);
 
-    const user = login(loginData.username, loginData.password);
-
-    if (user) {
-      setLoginStatus('Login successful!');
-      navigate('/Home');
-    } else {
-      setLoginStatus('Invalid username or password.');
+      if (response.data.success) {
+        setLoginStatus('Login successful!');
+        navigate('/Home');
+      } else {
+        setLoginStatus('Invalid username or password.');
+        console.error('Login error:', response.data.message);
+      }
+    } catch (error) {
+      console.error('Error logging in:', error);
+      setLoginStatus('An error occurred while trying to log in.');
     }
   };
 
@@ -45,8 +46,7 @@ function Login() {
         <h3>LOGIN</h3>
         <br />
         <div className="input-box">
-          <label>Username : </label>
-          <br />
+          <label>Username:</label>
           <TextField
             className="inbox"
             variant="outlined"
@@ -60,8 +60,7 @@ function Login() {
         </div>
         <br />
         <div className="input-box">
-          <label>Password : </label>
-          <br />
+          <label>Password:</label>
           <TextField
             className="inbox"
             variant="outlined"

@@ -10,6 +10,8 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import ShareIcon from '@mui/icons-material/Share';
 import PaymentIcon from '@mui/icons-material/Payment';
 import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
+import {Link} from 'react-router-dom';
+import PaymentForm from './PaymentForm';
 
 const cardData = [
   {
@@ -109,7 +111,7 @@ export default function Booking() {
             </Typography>
           </CardContent>
           <CardActions>
-            <Button size="small"><PaymentIcon/>Book</Button>
+            <Button size="small"><Link to="/payment"><PaymentIcon/>Book</Link></Button>
             <Button size="small" ><ShareIcon />Share</Button>
             <Button size="small"><ShoppingCartIcon/>Add Cart</Button>
           </CardActions>
